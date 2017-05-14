@@ -72,7 +72,8 @@ public class DetailActivity extends AppCompatActivity {
                             JSONArray array = jsonObject.getJSONArray("results");
                             JSONObject o = array.getJSONObject(postkey);
 
-                            setTitle("  ");
+                            setTitle(o.getString("display_title"));
+                            textViewHeaddt.setText(o.getString("display_title"));
                             textViewDescdt.setText(o.getString("summary_short"));
                             url = o.getJSONObject("link").getString("url");
                             urlGambar = o.getJSONObject("multimedia").getString("src");
