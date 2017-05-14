@@ -1,6 +1,7 @@
 package id.sch.smktelkom_mlg.privateassignment.xirpl612.privateassignment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -35,13 +37,24 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        ListItem listItem = listItems.get(position);
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        final ListItem listItem = listItems.get(position);
 
         holder.textViewHead.setText(listItem.getHead());
         holder.textViewDesc.setText(listItem.getDesc());
 
         Glide.with(context).load(listItem.getImageUrl()).into(holder.imageView);
+
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "You clicked " + listItem.getHead(), Toast.LENGTH_LONG).show();
+                Intent singleBlogIntent = new Intent(context, DetailActivity.class);
+                singleBlogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                singleBlogIntent.putExtra("Kolv", position);
+                context.startActivity(singleBlogIntent);
+            }
+        });
     }
 
     @Override

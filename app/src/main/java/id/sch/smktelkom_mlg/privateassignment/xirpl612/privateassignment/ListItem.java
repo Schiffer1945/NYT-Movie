@@ -1,10 +1,12 @@
 package id.sch.smktelkom_mlg.privateassignment.xirpl612.privateassignment;
 
+import java.io.Serializable;
+
 /**
  * Created by Fariz on 14-May-17.
  */
 
-public class ListItem {
+public class ListItem implements Serializable {
     private String head;
     private String desc;
     private String imageUrl;

@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,7 +33,10 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private static final String URL_DATA = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=35ffe1ef119e4fcd9655c229d74e6327";
-
+    public TextView textViewHead;
+    public TextView textViewDesc;
+    public ImageView imageViewUrl;
+    public String urlgambar;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItems;
