@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="id.sch.smktelkom_mlg.privateassignment.xirpl612.privateassignment">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -10,7 +12,8 @@
         android:label="NYT Movies"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:label">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -21,6 +24,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="DATABASE"
+            android:value="like.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.id.sch.smktelkom_mlg.privateassignment.xirpl612.privateassignment" />
         <activity
             android:name=".DetailActivity"
             android:label=""

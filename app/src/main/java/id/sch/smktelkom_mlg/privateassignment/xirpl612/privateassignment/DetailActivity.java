@@ -29,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     public ImageView imageViewdt;
     public String url;
     public String urlGambar;
+    LikeItem likeItem;
     boolean ipress;
     private Integer postkey = null;
 
@@ -50,8 +51,14 @@ public class DetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (ipress) {
+                    doSave();
+                    Snackbar.make(view, "Liked", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                } else {
+                    Snackbar.make(view, "Oops", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
             }
         });
     }
@@ -101,6 +108,16 @@ public class DetailActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+
+    }
+
+    private void doSave() {
+        String judul = textViewHeaddt.getText().toString();
+        String deskripsi = textViewDescdt.getText().toString();
+        String urlgambar = urlGambar;
+
+        likeItem = new LikeItem(judul, deskripsi, urlgambar);
+        likeItem.save();
 
     }
 }

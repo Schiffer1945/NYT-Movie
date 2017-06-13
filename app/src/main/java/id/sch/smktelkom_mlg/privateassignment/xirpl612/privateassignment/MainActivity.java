@@ -94,7 +94,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new HomeFragment();
             setTitle("Home");
         } else if (id == R.id.nav_like) {
-
+            fragment = new LikedFragment();
+            setTitle("Liked Page");
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
