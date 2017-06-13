@@ -14,7 +14,7 @@ SMK Telkom Malang
 
 **Jenis Navigasi yang digunakan pada Aplikasi :** Navigation Drawer
 
-**Local database :** SQLite dasar
+**Local database :** Sugar ORM
 
 **Deskripsi singkat dari aplikasi :**
 
